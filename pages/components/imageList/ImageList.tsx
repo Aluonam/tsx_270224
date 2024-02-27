@@ -4,13 +4,13 @@ const ImageList = () => {
 
     type imagePrototype = [
         {
-            "id": "102",
-            "author": "Ben Moore",
-            "width": 4320,
-            "height": 3240,
-            "url": "https://unsplash.com/photos/pJILiyPdrXI",
-            "download_url": "https://picsum.photos/id/102/4320/3240"
-            }
+            id: number,
+            author: string,
+            width: number,
+            height: number,
+            url: string,
+            download_url: string
+        }
     ]
 
     const [allImages, setAllImages] = useState<imagePrototype>()
