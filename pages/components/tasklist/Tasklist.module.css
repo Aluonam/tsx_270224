@@ -1,0 +1,7 @@
+.taskTextDone{
+    text-decoration:line-through;
+}
+
+.taskTextNotDone{
+    text-decoration: none;
+}
