@@ -8,7 +8,13 @@ const Tasklist = () => {
         done: true
     }
 
-    const [taskList, setTaskList] = useState<taskPrototype>()
+    const [taskList, setTaskList] = useState<taskPrototype>(        
+        {
+        id: 0,
+        text: "tarea por defecto",
+        done: true
+        }
+    )
     const [inputText, setInputText] = useState<string>("ejemplo de tarea")
 
   return (
