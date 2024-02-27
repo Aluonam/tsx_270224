@@ -20,16 +20,23 @@ const ImageList = () => {
         try{
             const url = await fetch(`https://picsum.photos/v2/list?page=2&limit=${numImages}`);
             const data = await url.json();
+            setAllImages(data)
             console.log(data)
         }catch(error:any){console.log(error,"error")}
     }
+
+    const showImages = allImages?.map((oneImg)=>{
+        return(
+            <img src={oneImg.download_url} key={oneImg.id}></img>
+        )
+    })
 
   return (
     <div>
     <h3>¿Cuántas imágenes deseas mostrar?</h3>
     <input type='number' max={50} min={0} onChange={(e)=>setUserNumber(parseInt(e.target.value))} value={userNumber}></input>
     <button onClick={()=>{apiCall(userNumber)}}>mostrar</button>
-    {userNumber}
+    {showImages}
     </div>
   )
 }
