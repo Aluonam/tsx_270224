@@ -26,6 +26,12 @@ export const Tasklist = () => {
         console.log(listOfTask)
         setInputText("")
     }
+    const showTaskList = listOfTask.map((oneTask)=>{
+        return(
+            <li>{oneTask.text}</li>
+        )
+        
+    })
 
   return (
     <div>
@@ -35,6 +41,9 @@ export const Tasklist = () => {
     <button onClick={()=>{handleAddTask()}}>send</button>
     <br></br>
     <h3>Tareas:</h3>
+    <ul>
+        {showTaskList}
+    </ul>
     </div>
   )
 }
