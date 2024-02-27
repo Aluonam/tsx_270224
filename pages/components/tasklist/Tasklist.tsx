@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
+import style from './Tasklist.module.css'
 
   type taskPrototype = {
         id: number,
         text: string,
-        done: true
+        done: boolean
     }
 
 export const Tasklist = () => {
@@ -12,26 +13,43 @@ export const Tasklist = () => {
        [ {
         id: 0,
         text: "tarea por defecto",
-        done: true
+        done: false
         }]
     )
     const [inputText, setInputText] = useState<string>("ejemplo de tarea")
 
     const handleAddTask = ()=>{
         setListOfTask([...listOfTask,{
-            id: 0,
+            id: listOfTask.length,
             text: inputText,
-            done: true
+            done: false
         }])
-        console.log(listOfTask)
+        console.log(listOfTask) 
         setInputText("")
     }
+
+    const handleTaskDone = (idTask:number) => {
+        const newData = listOfTask.map((oneTask)=>{
+        if(oneTask.id === idTask){
+            oneTask.done = !oneTask.done
+        }
+        return oneTask
+        })
+
+        setListOfTask(newData)
+    }
+
     const showTaskList = listOfTask.map((oneTask)=>{
         return(
-            <li>{oneTask.text}</li>
+            <>
+            <li className={oneTask.done ? style.taskTextDone : style.taskTextNotDone}>
+                {oneTask.text}
+                <button onClick={()=>handleTaskDone(oneTask.id)}>Done</button>
+            </li>
+            </>
         )
-        
     })
+
 
   return (
     <div>
