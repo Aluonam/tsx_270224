@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { Inter } from "next/font/google";
 import styles from "@/styles/Home.module.css";
-import Tasklist from "./components/tasklist/Tasklist";
+import {Tasklist} from "./components/tasklist/Tasklist";
 
 const inter = Inter({ subsets: ["latin"] });
 
