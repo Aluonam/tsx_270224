@@ -14,7 +14,7 @@ const ImageList = () => {
     ]
 
     const [allImages, setAllImages] = useState<imagePrototype>() //GUARDA LISTA QUE RECIBE DE LA API
-    const [userNumber, setUserNumber] = useState<number>() //GUARDA NUMERO QUE HA ESCRITO EL USUARIO
+    const [userNumber, setUserNumber] = useState<number>(5) //GUARDA NUMERO QUE HA ESCRITO EL USUARIO
 
     const apiCall = async (numImages:number)=>{
         try{
@@ -28,7 +28,7 @@ const ImageList = () => {
     <div>
     <h3>¿Cuántas imágenes deseas mostrar?</h3>
     <input type='number' max={50} min={0} onChange={(e)=>setUserNumber(parseInt(e.target.value))} value={userNumber}></input>
-    <button onClick={()=>{apiCall(3)}}>mostrar</button>
+    <button onClick={()=>{apiCall(userNumber)}}>mostrar</button>
     {userNumber}
     </div>
   )
