@@ -9,9 +9,14 @@ const Tasklist = () => {
     }
 
     const [taskList, setTaskList] = useState<taskPrototype>()
+    const [inputText, setInputText] = useState<string>("ejemplo de tarea")
 
   return (
-    <div>Tasklist</div>
+    <div>Tasklist
+
+    <input type="text" onChange={(e)=>setInputText(e.target.value)} value={inputText}></input>
+
+    </div>
   )
 }
 
