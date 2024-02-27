@@ -1,11 +1,6 @@
 import React, { useState } from 'react'
 import style from './Tasklist.module.css'
-
-  type taskPrototype = {
-        id: number,
-        text: string,
-        done: boolean
-    }
+import { taskPrototype } from './types'
 
 export const Tasklist = () => {
 
@@ -30,10 +25,10 @@ export const Tasklist = () => {
 
     const handleTaskDone = (idTask:number) => {
         const newData = listOfTask.map((oneTask)=>{
-        if(oneTask.id === idTask){
-            oneTask.done = !oneTask.done
-        }
-        return oneTask
+            if(oneTask.id === idTask){
+                oneTask.done = !oneTask.done
+            }
+            return oneTask
         })
 
         setListOfTask(newData)
