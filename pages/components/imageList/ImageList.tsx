@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import styleImg from './ImageList.module.css'
 
 const ImageList = () => {
 
@@ -27,16 +28,21 @@ const ImageList = () => {
 
     const showImages = allImages?.map((oneImg)=>{
         return(
-            <img src={oneImg.download_url} key={oneImg.id}></img>
+            <img src={oneImg.download_url} key={oneImg.id} className={styleImg.image}></img>
         )
     })
 
   return (
-    <div>
-    <h3>¿Cuántas imágenes deseas mostrar?</h3>
-    <input type='number' max={50} min={0} onChange={(e)=>setUserNumber(parseInt(e.target.value))} value={userNumber}></input>
-    <button onClick={()=>{apiCall(userNumber)}}>mostrar</button>
-    {showImages}
+    <div className={styleImg.generalBox}>
+        <h3>¿Cuántas imágenes deseas mostrar?</h3>
+        <div className={styleImg.buttonsBox}>
+            <input type='number' max={50} min={0} onChange={(e)=>setUserNumber(parseInt(e.target.value))} value={userNumber}></input>
+            <button onClick={()=>{apiCall(userNumber)}}>mostrar</button>
+        </div>
+        <div className={styleImg.imagesList}>
+           {showImages} 
+        </div>
+        
     </div>
   )
 }
