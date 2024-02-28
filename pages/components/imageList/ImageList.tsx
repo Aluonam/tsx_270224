@@ -1,18 +1,8 @@
 import React, { useState } from 'react'
 import styleImg from './ImageList.module.css'
+import { imagePrototype } from './types'
 
 const ImageList = () => {
-
-    type imagePrototype = 
-        {
-            id: number,
-            author: string,
-            width: number,
-            height: number,
-            url: string,
-            download_url: string
-        }
-    
 
     const [allImages, setAllImages] = useState<imagePrototype[]>() //GUARDA LISTA QUE RECIBE DE LA API
     const [userNumber, setUserNumber] = useState<number>(5) //GUARDA NUMERO QUE HA ESCRITO EL USUARIO
