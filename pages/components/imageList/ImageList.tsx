@@ -3,7 +3,7 @@ import styleImg from './ImageList.module.css'
 
 const ImageList = () => {
 
-    type imagePrototype = [
+    type imagePrototype = 
         {
             id: number,
             author: string,
@@ -12,9 +12,9 @@ const ImageList = () => {
             url: string,
             download_url: string
         }
-    ]
+    
 
-    const [allImages, setAllImages] = useState<imagePrototype>() //GUARDA LISTA QUE RECIBE DE LA API
+    const [allImages, setAllImages] = useState<imagePrototype[]>() //GUARDA LISTA QUE RECIBE DE LA API
     const [userNumber, setUserNumber] = useState<number>(5) //GUARDA NUMERO QUE HA ESCRITO EL USUARIO
 
     const apiCall = async (numImages:number)=>{
@@ -22,7 +22,7 @@ const ImageList = () => {
             const url = await fetch(`https://picsum.photos/v2/list?page=2&limit=${numImages}`);
             const data = await url.json();
             setAllImages(data)
-            console.log(data)
+            console.log(data) 
         }catch(error:any){console.log(error,"error")}
     }
 
